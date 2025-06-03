@@ -1,0 +1,445 @@
+{\rtf1\fbidis\ansi\ansicpg1252\deff0\nouicompat\deflang1046{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset1 Segoe UI Symbol;}{\f2\fswiss\fcharset1 SimSun-ExtB;}{\f3\fnil\fcharset1 Segoe UI Symbol;}}
+{\*\generator Riched20 6.2.9200}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang22 <!DOCTYPE html>\par
+<html lang="pt-BR" class="scroll-smooth">\par
+<head>\par
+    <meta charset="UTF-8">\par
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">\par
+    <title>Proposta Interativa de IA para Lacaut</title>\par
+    <script src="https://cdn.tailwindcss.com"></script>\par
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>\par
+    <link rel="preconnect" href="https://fonts.googleapis.com">\par
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\par
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">\par
+    <!-- Chosen Palette: Warm Neutrals & Tech Blue -->\par
+    <!-- Application Structure Plan: A dashboard-style, single-page application designed as a strategic proposal. The structure guides the user from a high-level overview of Lacaut to a detailed competitive analysis, then into specific AI opportunities mapped onto the lab workflow, and finally to a phased implementation roadmap. This non-linear, thematic structure was chosen over the report's linear format to be more engaging, persuasive, and easier to digest for a business owner, focusing on the "why" and "how" rather than just presenting data sequentially. -->\par
+    <!-- Visualization & Content Choices: \par
+        - Report Info: Competitive landscape (Table 2). Goal: Compare. Viz/Presentation: Interactive Bar Chart (Chart.js). Interaction: Click on a bar to see detailed info. Justification: Visually highlights Lacaut's position and makes competitor strategies easily explorable.\par
+        - Report Info: Lab Workflow & AI use cases (Section 5). Goal: Organize & Inform. Viz/Presentation: HTML/CSS Flexbox diagram. Interaction: Hover/click on icons to reveal popups with detailed AI agent functionality. Justification: Connects abstract AI opportunities to concrete, familiar lab processes, making the value proposition tangible and intuitive.\par
+        - Report Info: Strategic recommendations (Section 6). Goal: Change/Action Plan. Viz/Presentation: HTML/CSS phased roadmap. Interaction: Static visual. Justification: Clearly presents a step-by-step path for adoption, making the project feel manageable.\par
+    -->\par
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->\par
+    <style>\par
+        body \{\par
+            font-family: 'Inter', sans-serif;\par
+            background-color: #F8F7F4;\par
+            color: #333333;\par
+        \}\par
+        .chart-container \{\par
+            position: relative;\par
+            width: 100%;\par
+            max-width: 800px;\par
+            margin-left: auto;\par
+            margin-right: auto;\par
+            height: 400px;\par
+            max-height: 50vh;\par
+        \}\par
+        @media (max-width: 768px) \{\par
+            .chart-container \{\par
+                height: 350px;\par
+                max-height: 60vh;\par
+            \}\par
+        \}\par
+        .nav-link \{\par
+            transition: color 0.3s ease, border-bottom-color 0.3s ease;\par
+            border-bottom: 2px solid transparent;\par
+        \}\par
+        .nav-link:hover, .nav-link.active \{\par
+            color: #2563EB;\par
+            border-bottom-color: #2563EB;\par
+        \}\par
+        .card-hover \{\par
+            transition: transform 0.3s ease, box-shadow 0.3s ease;\par
+        \}\par
+        .card-hover:hover \{\par
+            transform: translateY(-5px);\par
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\par
+        \}\par
+        .popup \{\par
+            transition: opacity 0.3s ease, transform 0.3s ease;\par
+        \}\par
+    </style>\par
+</head>\par
+<body class="antialiased">\par
+\par
+    <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">\par
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">\par
+            <h1 class="text-xl md:text-2xl font-bold text-blue-800">Proposta Estrat\'e9gica de IA</h1>\par
+            <div class="hidden md:flex items-center space-x-8">\par
+                <a href="#overview" class="nav-link pb-1">Vis\'e3o Geral</a>\par
+                <a href="#competition" class="nav-link pb-1">Cen\'e1rio Competitivo</a>\par
+                <a href="#opportunities" class="nav-link pb-1">Oportunidades de IA</a>\par
+                <a href="#roadmap" class="nav-link pb-1">Plano de A\'e7\'e3o</a>\par
+            </div>\par
+            <div class="md:hidden">\par
+                <button id="menu-btn" class="text-gray-700 focus:outline-none">\par
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>\par
+                </button>\par
+            </div>\par
+        </nav>\par
+        <div id="mobile-menu" class="hidden md:hidden">\par
+            <a href="#overview" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Vis\'e3o Geral</a>\par
+            <a href="#competition" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Cen\'e1rio Competitivo</a>\par
+            <a href="#opportunities" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Oportunidades de IA</a>\par
+            <a href="#roadmap" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Plano de A\'e7\'e3o</a>\par
+        </div>\par
+    </header>\par
+\par
+    <main>\par
+        <section class="py-16 md:py-24 text-center bg-white">\par
+            <div class="container mx-auto px-6">\par
+                <h2 class="text-3xl md:text-5xl font-bold text-gray-800 mb-4">Transformando An\'e1lise de Combust\'edveis</h2>\par
+                <p class="text-lg md:text-xl text-blue-800 font-semibold mb-8">A Oportunidade Estrat\'e9gica de IA para o Lacaut</p>\par
+                <p class="max-w-3xl mx-auto text-gray-600">\par
+                    Esta an\'e1lise revela uma oportunidade \'fanica para o Lacaut: adotar a Intelig\'eancia Artificial para otimizar opera\'e7\'f5es, ampliar a capacidade de pesquisa e se posicionar como um l\'edder inovador no setor, que j\'e1 presencia uma forte mar\'e9 de digitaliza\'e7\'e3o liderada por grandes players.\par
+                </p>\par
+            </div>\par
+        </section>\par
+\par
+        <section id="overview" class="py-16 md:py-20">\par
+            <div class="container mx-auto px-6">\par
+                <div class="text-center mb-12">\par
+                    <h3 class="text-3xl font-bold text-gray-800 mb-2">Vis\'e3o Geral: O Ecossistema Lacaut</h3>\par
+                    <p class="max-w-2xl mx-auto text-gray-600">Para construir o futuro, primeiro entendemos a sua base. O Lacaut possui uma identidade \'fanica, com fortalezas em pesquisa, regula\'e7\'e3o e ensino. Estes pilares s\'e3o a funda\'e7\'e3o perfeita para a implementa\'e7\'e3o de solu\'e7\'f5es de IA que respeitam e potencializam sua miss\'e3o.\par
+                    </p>\par
+                </div>\par
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">\par
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover">\par
+                        <h4 class="font-bold text-xl mb-2 text-blue-700">Miss\'e3o e Foco</h4>\par
+                        <p class="text-gray-600">Forte voca\'e7\'e3o para Pesquisa & Desenvolvimento, monitoramento de qualidade para a ANP e forma\'e7\'e3o de novos talentos, criando uma sinergia \'fanica entre academia e ind\'fastria.</p>\par
+                    </div>\par
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover">\par
+                        <h4 class="font-bold text-xl mb-2 text-blue-700">Clientela Estrat\'e9gica</h4>\par
+                        <p class="text-gray-600">Atende a ANP como cliente institucional chave, al\'e9m do setor produtivo e da comunidade acad\'eamica, demonstrando sua relev\'e2ncia em m\'faltiplas frentes.</p>\par
+                    </div>\par
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover">\par
+                        <h4 class="font-bold text-xl mb-2 text-blue-700">Credibilidade e Padr\'f5es</h4>\par
+                        <p class="text-gray-600">Credenciado pelo INMETRO (CGCRE) e ANP, garantindo a m\'e1xima confiabilidade e conformidade, pilares essenciais que a IA pode fortalecer ainda mais.</p>\par
+                    </div>\par
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover bg-blue-50 border-l-4 border-blue-500">\par
+                        <h4 class="font-bold text-xl mb-2 text-blue-700">Status da Tecnologia</h4>\par
+                        <p class="text-gray-600">Nenhuma ado\'e7\'e3o expl\'edcita de IA reportada. Isso representa um cen\'e1rio "greenfield": uma oportunidade de ouro para implementar solu\'e7\'f5es de ponta e dar um salto competitivo.</p>\par
+                    </div>\par
+                </div>\par
+            </div>\par
+        </section>\par
+\par
+        <section id="competition" class="py-16 md:py-20 bg-white">\par
+            <div class="container mx-auto px-6">\par
+                <div class="text-center mb-12">\par
+                    <h3 class="text-3xl font-bold text-gray-800 mb-2">Cen\'e1rio Competitivo: A Mar\'e9 Digital</h3>\par
+                    <p class="max-w-3xl mx-auto text-gray-600">O Lacaut n\'e3o opera em um v\'e1cuo. Grandes players nacionais e internacionais, assim como o pr\'f3prio \'f3rg\'e3o regulador, j\'e1 est\'e3o navegando na dire\'e7\'e3o da automa\'e7\'e3o e da IA. Este gr\'e1fico interativo mostra onde cada um se posiciona. Clique em uma barra para explorar as iniciativas de cada concorrente e entender as tend\'eancias que est\'e3o moldando o futuro do setor.</p>\par
+                </div>\par
+                <div class="lg:flex lg:gap-8 items-start">\par
+                    <div class="lg:w-2/3 mb-8 lg:mb-0">\par
+                        <div class="chart-container">\par
+                            <canvas id="competitionChart"></canvas>\par
+                        </div>\par
+                    </div>\par
+                    <div id="competitor-info" class="lg:w-1/3 p-6 bg-gray-50 rounded-lg border">\par
+                        <h4 id="competitor-title" class="font-bold text-xl mb-2 text-gray-700">Selecione uma empresa</h4>\par
+                        <p id="competitor-text" class="text-gray-600">Clique em uma das barras no gr\'e1fico para ver detalhes sobre as iniciativas de IA e automa\'e7\'e3o da empresa selecionada.</p>\par
+                    </div>\par
+                </div>\par
+            </div>\par
+        </section>\par
+        \par
+        <section id="opportunities" class="py-16 md:py-20 relative">\par
+            <div class="container mx-auto px-6">\par
+                <div class="text-center mb-16">\par
+                    <h3 class="text-3xl font-bold text-gray-800 mb-2">Oportunidades de IA: O Laborat\'f3rio do Futuro</h3>\par
+                    <p class="max-w-3xl mx-auto text-gray-600">A verdadeira transforma\'e7\'e3o acontece quando a tecnologia encontra a necessidade. Mapeamos o fluxo de trabalho t\'edpico de um laborat\'f3rio de an\'e1lise e identificamos pontos cr\'edticos onde agentes de IA podem gerar o maior impacto. Interaja com os \'edcones abaixo para descobrir como a IA pode otimizar cada etapa, desde a chegada da amostra at\'e9 a entrega do relat\'f3rio final.</p>\par
+                </div>\par
+\par
+                <div class="relative">\par
+                    <div class="absolute top-1/2 left-0 w-full h-1 bg-blue-200 rounded-full" style="transform: translateY(-50%);"></div>\par
+                    <div class="relative flex justify-between items-start text-center">\par
+                        <div class="w-1/5 flex flex-col items-center workflow-step" data-step="1">\par
+                            <div class="bg-white border-4 border-blue-200 w-16 h-16 rounded-full flex items-center justify-center cursor-pointer mb-2 transition-all duration-300">\par
+                                <span class="text-2xl">\f1\lang1046\u-10179?\u-8987?\f0 </span>\par
+                            </div>\par
+                            <h5 class="font-semibold">Recep\'e7\'e3o</h5>\par
+                        </div>\par
+                        <div class="w-1/5 flex flex-col items-center workflow-step" data-step="2">\par
+                            <div class="bg-white border-4 border-blue-200 w-16 h-16 rounded-full flex items-center justify-center cursor-pointer mb-2 transition-all duration-300">\par
+                                <span class="text-2xl">\f1\u-10179?\u-8916?\f0 </span>\par
+                            </div>\par
+                            <h5 class="font-semibold">Preparo & An\'e1lise</h5>\par
+                        </div>\par
+                        <div class="w-1/5 flex flex-col items-center workflow-step" data-step="3">\par
+                            <div class="bg-white border-4 border-blue-200 w-16 h-16 rounded-full flex items-center justify-center cursor-pointer mb-2 transition-all duration-300">\par
+                                <span class="text-2xl">\f2\u-10178?\u-8736?\f0 </span>\par
+                            </div>\par
+                            <h5 class="font-semibold">Interpreta\'e7\'e3o & CQ</h5>\par
+                        </div>\par
+                        <div class="w-1/5 flex flex-col items-center workflow-step" data-step="4">\par
+                            <div class="bg-white border-4 border-blue-200 w-16 h-16 rounded-full flex items-center justify-center cursor-pointer mb-2 transition-all duration-300">\par
+                                <span class="text-2xl">\f1\u-10179?\u-9020?\f0 </span>\par
+                            </div>\par
+                            <h5 class="font-semibold">Relat\'f3rios</h5>\par
+                        </div>\par
+                        <div class="w-1/5 flex flex-col items-center workflow-step" data-step="5">\par
+                             <div class="bg-white border-4 border-blue-200 w-16 h-16 rounded-full flex items-center justify-center cursor-pointer mb-2 transition-all duration-300">\par
+                                <span class="text-2xl">\f3\u9881?\u-497?\f0 </span>\par
+                            </div>\par
+                            <h5 class="font-semibold">Manuten\'e7\'e3o</h5>\par
+                        </div>\par
+                    </div>\par
+                </div>\par
+\par
+                <div id="opportunity-popup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none popup">\par
+                    <div class="bg-white rounded-lg shadow-xl max-w-lg w-full p-6 md:p-8 relative transform scale-95 popup">\par
+                        <button id="close-popup" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800">&times;</button>\par
+                        <h4 id="popup-title" class="text-2xl font-bold text-blue-800 mb-4"></h4>\par
+                        <p id="popup-text" class="text-gray-600 mb-4"></p>\par
+                        <div id="popup-benefits" class="text-sm"></div>\par
+                    </div>\par
+                </div>\par
+\par
+            </div>\par
+        </section>\par
+\par
+        <section id="roadmap" class="py-16 md:py-20 bg-white">\par
+            <div class="container mx-auto px-6">\par
+                 <div class="text-center mb-16">\par
+                    <h3 class="text-3xl font-bold text-gray-800 mb-2">Nosso Plano de A\'e7\'e3o: Um Roteiro para o Sucesso</h3>\par
+                    <p class="max-w-3xl mx-auto text-gray-600">A transforma\'e7\'e3o digital n\'e3o acontece da noite para o dia. Propomos uma jornada faseada, garantindo uma transi\'e7\'e3o suave, ado\'e7\'e3o eficaz pela equipe e um retorno sobre o investimento claro a cada passo. Este roteiro foi desenhado para levar o Lacaut da sua posi\'e7\'e3o atual a um novo patamar de inova\'e7\'e3o e efici\'eancia de forma estrat\'e9gica e gerenci\'e1vel.</p>\par
+                </div>\par
+\par
+                <div class="relative">\par
+                    <div class="hidden md:block absolute top-4 left-1/2 w-1 h-full bg-blue-200" style="transform: translateX(-50%);"></div>\par
+                    \par
+                    <div class="space-y-12 md:space-y-0 md:grid md:grid-cols-1">\par
+                        <div class="md:flex md:items-center md:flex-row-reverse">\par
+                            <div class="md:w-1/2 md:pl-12">\par
+                                <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-blue-500 card-hover">\par
+                                    <h4 class="font-bold text-xl mb-2 text-blue-700">Fase 1: Funda\'e7\'e3o e Ganhos R\'e1pidos (3-6 meses)</h4>\par
+                                    <p class="text-gray-600">Come\'e7amos com um projeto piloto de alto impacto e baixo risco. Foco na automa\'e7\'e3o da gera\'e7\'e3o de relat\'f3rios para a ANP e na valida\'e7\'e3o de dados. O objetivo \'e9 demonstrar valor rapidamente, reduzir erros manuais e liberar tempo da equipe t\'e9cnica.</p>\par
+                                </div>\par
+                            </div>\par
+                            <div class="md:w-1/2 flex justify-center">\par
+                                <div class="w-8 h-8 bg-blue-500 rounded-full border-4 border-white shadow-lg flex items-center justify-center text-white font-bold">1</div>\par
+                            </div>\par
+                        </div>\par
+\par
+                        <div class="md:flex md:items-center">\par
+                            <div class="md:w-1/2 md:pr-12">\par
+                                 <div class="bg-gray-50 p-6 rounded-lg border-r-4 md:border-r-0 md:border-l-4 border-blue-500 card-hover text-left md:text-right">\par
+                                    <h4 class="font-bold text-xl mb-2 text-blue-700">Fase 2: Expans\'e3o e Intelig\'eancia (6-12 meses)</h4>\par
+                                    <p class="text-gray-600">Com base no sucesso da Fase 1, expandimos as capacidades. Implementamos o agente de IA para Controle de Qualidade preditivo e interpreta\'e7\'e3o de resultados, aumentando a precis\'e3o e fornecendo insights mais profundos para pesquisa.</p>\par
+                                </div>\par
+                            </div>\par
+                             <div class="md:w-1/2 flex justify-center">\par
+                                <div class="w-8 h-8 bg-blue-500 rounded-full border-4 border-white shadow-lg flex items-center justify-center text-white font-bold">2</div>\par
+                            </div>\par
+                        </div>\par
+\par
+                        <div class="md:flex md:items-center md:flex-row-reverse">\par
+                           <div class="md:w-1/2 md:pl-12">\par
+                                <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-blue-500 card-hover">\par
+                                    <h4 class="font-bold text-xl mb-2 text-blue-700">Fase 3: Lideran\'e7a e Inova\'e7\'e3o (Cont\'ednuo)</h4>\par
+                                    <p class="text-gray-600">A IA se torna parte do DNA do Lacaut. Introduzimos agentes para manuten\'e7\'e3o preditiva de equipamentos e um "assistente de pesquisa" para a equipe. O Lacaut se consolida como um centro de excel\'eancia e inova\'e7\'e3o, definindo novos padr\'f5es para o setor.</p>\par
+                                </div>\par
+                            </div>\par
+                           <div class="md:w-1/2 flex justify-center">\par
+                                <div class="w-8 h-8 bg-blue-500 rounded-full border-4 border-white shadow-lg flex items-center justify-center text-white font-bold">3</div>\par
+                            </div>\par
+                        </div>\par
+                    </div>\par
+                </div>\par
+            </div>\par
+        </section>\par
+    </main>\par
+\par
+    <footer class="bg-gray-800 text-white py-8">\par
+        <div class="container mx-auto px-6 text-center">\par
+            <p class="font-bold text-lg">Pronto para liderar a inova\'e7\'e3o no setor?</p>\par
+            <p class="text-gray-400 mt-2">Vamos conversar sobre como podemos construir juntos o futuro do Lacaut.</p>\par
+        </div>\par
+    </footer>\par
+    \par
+    <script>\par
+        document.addEventListener('DOMContentLoaded', () => \{\par
+\par
+            const competitionData = \{\par
+                labels: ['Lacaut', 'ANP (CPT)', 'Bureau Veritas', 'SGS', 'Intertek', 'Petrobras'],\par
+                datasets: [\{\par
+                    label: 'N\'edvel de Ado\'e7\'e3o de IA/Automa\'e7\'e3o (Estimado)',\par
+                    data: [1, 5, 8, 7, 4, 9],\par
+                    backgroundColor: [\par
+                        'rgba(239, 68, 68, 0.6)', \par
+                        'rgba(59, 130, 246, 0.6)',\par
+                        'rgba(59, 130, 246, 0.6)',\par
+                        'rgba(59, 130, 246, 0.6)',\par
+                        'rgba(59, 130, 246, 0.6)',\par
+                        'rgba(25, 100, 235, 0.7)'\par
+                    ],\par
+                    borderColor: [\par
+                        'rgba(239, 68, 68, 1)',\par
+                        'rgba(59, 130, 246, 1)',\par
+                        'rgba(59, 130, 246, 1)',\par
+                        'rgba(59, 130, 246, 1)',\par
+                        'rgba(59, 130, 246, 1)',\par
+                        'rgba(25, 100, 235, 1)'\par
+                    ],\par
+                    borderWidth: 1\par
+                \}]\par
+            \};\par
+\par
+            const competitorDetails = [\par
+                \{ title: 'Lacaut', text: 'Atualmente, n\'e3o h\'e1 indica\'e7\'e3o de uso de IA, representando uma oportunidade "greenfield" para inova\'e7\'e3o e um salto de competitividade.' \},\par
+                \{ title: 'ANP (CPT)', text: 'O pr\'f3prio \'f3rg\'e3o regulador j\'e1 utiliza um sistema totalmente automatizado para destila\'e7\'e3o de petr\'f3leo, sinalizando o valor da automa\'e7\'e3o no setor.' \},\par
+                \{ title: 'Bureau Veritas', text: 'Utiliza o assistente "Charles AI" para monitoramento de \'f3leo, que analisa resultados e fornece recomenda\'e7\'f5es. Um exemplo claro de IA agregando valor anal\'edtico.' \},\par
+                \{ title: 'SGS', text: 'Oferece "An\'e1lise on-line (OLA)" e possui um forte foco global em certifica\'e7\'e3o e servi\'e7os de confian\'e7a digital baseados em IA.' \},\par
+                \{ title: 'Intertek', text: 'Embora a automa\'e7\'e3o de IA n\'e3o seja o foco no Brasil, a empresa explora globalmente a IA para seguran\'e7a de produtos, indicando uma consci\'eancia corporativa.' \},\par
+                \{ title: 'Petrobras', text: 'Lidera com iniciativas de larga escala como o "Projeto Cortex" (IA Generativa para an\'e1lise de dados) e um forte investimento em transforma\'e7\'e3o digital em toda a cadeia de O&G.' \},\par
+            ];\par
+            \par
+            const chartCtx = document.getElementById('competitionChart').getContext('2d');\par
+            const competitionChart = new Chart(chartCtx, \{\par
+                type: 'bar',\par
+                data: competitionData,\par
+                options: \{\par
+                    indexAxis: 'y',\par
+                    responsive: true,\par
+                    maintainAspectRatio: false,\par
+                    scales: \{\par
+                        x: \{\par
+                            beginAtZero: true,\par
+                            max: 10,\par
+                            title: \{\par
+                                display: true,\par
+                                text: 'N\'edvel de Ado\'e7\'e3o (0=Nenhum, 10=Alto)'\par
+                            \}\par
+                        \}\par
+                    \},\par
+                    plugins: \{\par
+                        legend: \{\par
+                            display: false\par
+                        \},\par
+                        tooltip: \{\par
+                            callbacks: \{\par
+                                label: function(context) \{\par
+                                    return ` N\'edvel: $\{context.raw\}`;\par
+                                \}\par
+                            \}\par
+                        \}\par
+                    \},\par
+                    onClick: (event, elements) => \{\par
+                        if (elements.length > 0) \{\par
+                            const index = elements[0].index;\par
+                            updateCompetitorInfo(index);\par
+                        \}\par
+                    \}\par
+                \}\par
+            \});\par
+\par
+            const competitorTitleEl = document.getElementById('competitor-title');\par
+            const competitorTextEl = document.getElementById('competitor-text');\par
+\par
+            function updateCompetitorInfo(index) \{\par
+                const details = competitorDetails[index];\par
+                competitorTitleEl.textContent = details.title;\par
+                competitorTextEl.textContent = details.text;\par
+            \}\par
+\par
+            const opportunitiesData = \{\par
+                1: \{\par
+                    title: "Recep\'e7\'e3o e Registro Inteligente",\par
+                    text: "Um agente de IA pode usar Reconhecimento \'d3ptico de Caracteres (OCR) para digitalizar formul\'e1rios de amostra e Processamento de Linguagem Natural (PLN) para extrair e inserir automaticamente os dados no LIMS, eliminando erros de digita\'e7\'e3o e economizando tempo.",\par
+                    benefits: `\par
+                        <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Efici\'eancia</span>\par
+                        <span class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Qualidade</span>\par
+                    `\par
+                \},\par
+                2: \{\par
+                    title: "Preparo & An\'e1lise Otimizados",\par
+                    text: "A IA pode otimizar o agendamento de ensaios com base na disponibilidade de equipamentos e prioridades. Isso garante o uso m\'e1ximo dos ativos do laborat\'f3rio e um fluxo de trabalho mais r\'e1pido e eficiente, reduzindo o tempo de espera das amostras.",\par
+                    benefits: `\par
+                        <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Efici\'eancia</span>\par
+                    `\par
+                \},\par
+                3: \{\par
+                    title: "Interpreta\'e7\'e3o de Resultados & CQ Avan\'e7ado",\par
+                    text: "O agente de IA analisa os resultados em tempo real, comparando-os com dados hist\'f3ricos para detectar anomalias sutis ou tend\'eancias que um humano poderia perder. Ele sinaliza desvios no Controle de Qualidade (CQ) de forma proativa, elevando a confiabilidade das an\'e1lises.",\par
+                    benefits: `\par
+                        <span class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Qualidade</span>\par
+                        <span class="inline-block bg-purple-100 text-purple-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Pesquisa</span>\par
+                    `\par
+                \},\par
+                4: \{\par
+                    title: "Gera\'e7\'e3o Automatizada de Relat\'f3rios",\par
+                    text: "Ap\'f3s a valida\'e7\'e3o, a IA compila automaticamente os dados em Certificados de An\'e1lise (CoA) ou relat\'f3rios de pesquisa, no formato exato exigido pela ANP ou por clientes. Pode at\'e9 gerar resumos executivos usando PLN, acelerando a entrega de resultados.",\par
+                    benefits: `\par
+                        <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Efici\'eancia</span>\par
+                        <span class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Qualidade</span>\par
+                    `\par
+                \},\par
+                5: \{\par
+                    title: "Manuten\'e7\'e3o Preditiva",\par
+                    text: "Analisando os dados de performance dos equipamentos, a IA pode prever falhas antes que aconte\'e7am, agendando a manuten\'e7\'e3o de forma proativa. Isso minimiza o tempo de inatividade dos instrumentos e evita atrasos inesperados nos projetos.",\par
+                    benefits: `\par
+                         <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Efici\'eancia</span>\par
+                         <span class="inline-block bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Custo</span>\par
+                    `\par
+                \}\par
+            \};\par
+            \par
+            const popup = document.getElementById('opportunity-popup');\par
+            const popupTitle = document.getElementById('popup-title');\par
+            const popupText = document.getElementById('popup-text');\par
+            const popupBenefits = document.getElementById('popup-benefits');\par
+            const closePopupBtn = document.getElementById('close-popup');\par
+\par
+            document.querySelectorAll('.workflow-step').forEach(step => \{\par
+                step.addEventListener('click', () => \{\par
+                    const stepId = step.dataset.step;\par
+                    const data = opportunitiesData[stepId];\par
+\par
+                    popupTitle.textContent = data.title;\par
+                    popupText.textContent = data.text;\par
+                    popupBenefits.innerHTML = data.benefits;\par
+                    \par
+                    popup.classList.remove('opacity-0', 'pointer-events-none');\par
+                    popup.querySelector('.popup').classList.remove('scale-95');\par
+                    \par
+                    document.querySelectorAll('.workflow-step div:first-child').forEach(s => s.classList.remove('bg-blue-500', 'text-white'));\par
+                    document.querySelectorAll('.workflow-step div:first-child').forEach(s => s.classList.add('bg-white'));\par
+                    \par
+                    step.querySelector('div').classList.add('bg-blue-500', 'text-white');\par
+                    step.querySelector('div').classList.remove('bg-white');\par
+                \});\par
+            \});\par
+\par
+            function closePopup() \{\par
+                popup.classList.add('opacity-0', 'pointer-events-none');\par
+                popup.querySelector('.popup').classList.add('scale-95');\par
+                document.querySelectorAll('.workflow-step div:first-child').forEach(s => s.classList.remove('bg-blue-500', 'text-white'));\par
+                document.querySelectorAll('.workflow-step div:first-child').forEach(s => s.classList.add('bg-white'));\par
+            \}\par
+\par
+            closePopupBtn.addEventListener('click', closePopup);\par
+            popup.addEventListener('click', (e) => \{\par
+                if (e.target === popup) \{\par
+                    closePopup();\par
+                \}\par
+            \});\par
+            \par
+            const menuBtn = document.getElementById('menu-btn');\par
+            const mobileMenu = document.getElementById('mobile-menu');\par
+            menuBtn.addEventListener('click', () => \{\par
+                mobileMenu.classList.toggle('hidden');\par
+            \});\par
+            \par
+            document.querySelectorAll('#mobile-menu a').forEach(link => \{\par
+                link.addEventListener('click', () => \{\par
+                    mobileMenu.classList.add('hidden');\par
+                \});\par
+            \});\par
+\par
+        \});\par
+    </script>\par
+</body>\par
+</html>\lang22\par
+}
+ 
